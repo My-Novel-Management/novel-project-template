@@ -1,7 +1,7 @@
 language: python
 
 python:
-    - 3.6
+    - 3.7
 
 # Handle git submodules yourself
 git:
@@ -18,7 +18,7 @@ install:
 
 script:
     - coverage run --rcfile=.coveragerc setup.py test
-    - python src/main.py -osdi
+    - python src/main.py -osdi --forcemecab
 
 after_success:
     - coveralls
