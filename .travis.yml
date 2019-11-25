@@ -18,7 +18,7 @@ install:
 
 script:
     - coverage run --rcfile=.coveragerc setup.py test
-    - python src/main.py -osdi --forcemecab
+    - coverage run --rcfile=.coveragerc src/main.py -osdi --forcemecab
 
 after_success:
     - coveralls
