@@ -11,5 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - This CHANGELOG file to hopefully serve as an evolving example of a standardized open source project CHANGELOG.
 - README one line implemented.
 
-[Unreleased]: https://github.com/nagisc007/storybuilder/compare/v0.0.1...HEAD
-[0.0.1]: https://github.com/nagisc007/storybuilder/releases/v0.0.1
+<!--Must change link URL-->
+
+[Unreleased]: https://github.com/XXX/compare/v0.0.1...HEAD
+[0.0.1]: https://github.com/XXX/releases/v0.0.1
