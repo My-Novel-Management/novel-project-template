@@ -6,13 +6,16 @@ import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append('storybuilder')
 from storybuilder.builder.world import World
+from storybuilder.common.times import COMMON_TIMES
 from config import PERSONS, CHARAS, STAGES, DAYS, TIMES, ITEMS, WORDS
+
 
 ## main
 def world():
     """Create a world.
     """
     w = World("")
+    w.set_times(COMMON_TIMES)
     w.set_db(PERSONS, CHARAS,
             STAGES, DAYS, TIMES,
             ITEMS,
