@@ -6,8 +6,8 @@ import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append('storybuilder')
 from storybuilder.builder.world import World
-from storybuilder.common.times import COMMON_TIMES
-from config import PERSONS, CHARAS, STAGES, DAYS, TIMES, ITEMS, WORDS
+from storybuilder.assets import basic
+from config import DAYS, ITEMS, LAYERS, PERSONS, RUBIS, STAGES, TIMES, WORDS
 from src.demo.main import ep_demo
 
 
@@ -20,22 +20,22 @@ def ch_main(w: World):
 def world():
     """Create a world.
     """
-    w = World(2)
-    w.set_times(COMMON_TIMES)
-    w.set_db(PERSONS, CHARAS,
-            STAGES, DAYS, TIMES,
-            ITEMS,
-            WORDS)
+    w = World("title")
+    w.setCommonData()
+    w.setAssets(basic.ASSET)
+    w.buildDB(PERSONS,
+            STAGES, ITEMS, DAYS, TIMES, WORDS,
+            RUBIS, LAYERS)
+    w.entryBlock(
+            )
     return w
 
-def story(w: World):
-    return w.story("Sample",
-            ch_main(w),
-            )
 
 def main(): # pragma: no cover
     w = world()
-    return w.build(story(w))
+    return w.build(
+            ch_main(w),
+            )
 
 
 if __name__ == '__main__':
