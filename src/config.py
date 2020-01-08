@@ -26,7 +26,7 @@
 
 
 PERSONS = (
-        # Tag / 氏,名 / 歳 / 性別 / 職業 / 呼称 / 紹介
+        # Tag / 氏,名 / 歳 / 誕生日 / 性別 / 職業 / 呼称 / 紹介
         )
 
 STAGES = (
@@ -54,5 +54,6 @@ RUBIS = (
         )
 
 LAYERS = (
+        # Key / Title / Words
         )
 
