@@ -18,5 +18,6 @@ _ = W.getWho()
 
 ## episode
 def ep_demo(w: World):
-    return w.episode("Demo", "__description__",
+    return w.episode("Demo",
+            # add scenes
             )
