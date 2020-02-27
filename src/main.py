@@ -10,11 +10,11 @@ sys.path.append('storybuilder')
 ## local libs
 from storybuilder.builder.world import World
 from storybuilder.builder.writer import Writer
+from config import PERSONS, AREAS, STAGES, DAYS, TIMES, ITEMS, WORDS, RUBIS, LAYERS
 ## assets
-from storybuilder.assets import basic
+from storybuilder.assets import basic, accessory
 ## local files
-from config import DAYS, ITEMS, LAYERS, PERSONS, RUBIS, STAGES, TIMES, WORDS
-from src.demo.main import ep_demo
+from src.chapter.main import ch_tmp
 
 ## define alias
 W = Writer
@@ -44,32 +44,30 @@ _ = Writer.getWho()
 
 
 ## main
-def ch_main(w: World):
-    return w.chapter("main",
-            ep_demo(w),
-            )
-
 def create_world():
     """Create a world.
     """
     w = World("title")
     w.setCommonData()
     w.setAssets(basic.ASSET)
+    w.setAssets(accessory.ASSET)
     w.buildDB(PERSONS,
-            STAGES, ITEMS, DAYS, TIMES, WORDS,
+            AREAS, STAGES, ITEMS, DAYS, TIMES, WORDS,
             RUBIS, LAYERS)
-    # w.setBaseDate()
+    w.setBaseDate(2020)
+    w.setBaseArea("Tokyo")
     # set textures
     # w.entryBlock()
     # w.entryHistory()
     # w.entryLifeNote()
+    w.setOutline("__outline__")
     return w
 
 
 def main(): # pragma: no cover
     w = create_world()
     return w.build(
-            ch_main(w),
+            ch_tmp(w),
             )
 
 
