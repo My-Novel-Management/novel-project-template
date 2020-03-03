@@ -52,7 +52,7 @@ def create_world():
     w.setAssets(basic.ASSET)
     w.setAssets(accessory.ASSET)
     w.buildDB(PERSONS,
-            AREAS, STAGES, ITEMS, DAYS, TIMES, WORDS,
+            AREAS, STAGES, DAYS, TIMES, ITEMS, WORDS,
             RUBIS, LAYERS)
     w.setBaseDate(2020)
     w.setBaseArea("Tokyo")
