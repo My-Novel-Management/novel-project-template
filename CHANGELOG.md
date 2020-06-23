@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [0.0.1] - 2019-XX-XX
+## [0.0.1] - 2020-XX-XX
 ### Added
 - This CHANGELOG file to hopefully serve as an evolving example of a standardized open source project CHANGELOG.
 - README one line implemented.

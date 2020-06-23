@@ -1,74 +1,51 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Main story.
-"""
-## path setting
+'''
+Story: "title"
+'''
 import os
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append('storybuilder')
-## public libs
-## local libs
 from storybuilder.builder.world import World
-from storybuilder.builder.writer import Writer
-from config import PERSONS, AREAS, STAGES, DAYS, TIMES, ITEMS, WORDS, RUBIS, LAYERS
-## assets
-from storybuilder.assets import basic, accessory
-## local files
-from src.chapter.main import ch_tmp
+from storybuilder.assets import basic
+from config import ASSET
+# import scenes
+# from scenes import xxx
 
-## define alias
-W = Writer
-_ = Writer.getWho()
 
 ################################################################
 #
-# Sample step:
-# 1) Create the world
-#       世界を作成する。
-# 2) Create a new chapter
-#       章の作成。
-# 3) Create a episode
-#       エピソード作成。
-# 4) Create a new scene
-#       シーン作成。物語のベース。ここに様々なActionを追加する。
-# 5) Create a new stage
-#       舞台作成。シーンに必須要素
-# 6) Create a new day and time
-#       日時作成。シーンのサブ要素
-# 7) Add a scene plot
-#       シーンプロットの作成。概要のないシーンは原則使えない
-# 8) Add scene actions
-#       シーンアクションの追加。
+#   1. Story memo
+#   2. Story structure
+#   3. Plot
+#   4. Conte
+#   5. Draft
 #
 ################################################################
 
+# Constant
+TITLE = "作品タイトル"
 
-## main
-def create_world():
-    """Create a world.
-    """
-    w = World("title")
-    w.setCommonData()
-    w.setAssets(basic.ASSET)
-    w.setAssets(accessory.ASSET)
-    w.buildDB(PERSONS,
-            AREAS, STAGES, DAYS, TIMES, ITEMS, WORDS,
-            RUBIS, LAYERS)
-    w.setBaseDate(2020)
-    w.setBaseArea("Tokyo")
-    # set textures
-    # w.entryBlock()
-    # w.entryHistory()
-    # w.entryLifeNote()
-    w.setOutline("__outline__")
-    return w
+
+# Episodes
+def ep_xxx(w: World):
+    return w.episode('episode_title',
+            outline="description")
+
+
+def ch_main(w: World):
+    return w.chapter('main',
+            )
 
 
 def main(): # pragma: no cover
-    w = create_world()
-    return w.build(
-            ch_tmp(w),
+    w = World.create_world(f"{TITLE}")
+    w.config.set_outline("__outline__")
+    w.db.set_from_asset(basic.ASSET)
+    w.db.set_from_asset(ASSET)
+    return w.run(
+            ch_main(w),
             )
 
 
