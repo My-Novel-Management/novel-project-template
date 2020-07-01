@@ -27,6 +27,7 @@ from config import ASSET
 # Constant
 TITLE = "作品タイトル"
 OUTLINE = "あらすじ"
+MAJOR, MINOR, MICRO = 0, 0, 1
 
 
 # Episodes
@@ -43,7 +44,7 @@ def ch_main(w: World):
 def main(): # pragma: no cover
     w = World.create_world(f"{TITLE}")
     w.config.set_outline(f"{OUTLINE}")
-    w.config.set_version(0,0,1)
+    w.config.set_version(MAJOR, MINOR, MICRO)
     w.db.set_from_asset(basic.ASSET)
     w.db.set_from_asset(ASSET)
     return w.run(
