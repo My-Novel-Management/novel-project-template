@@ -9,6 +9,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.append('storybuilder')
 from storybuilder.builder.world import World
 from storybuilder.assets import basic
+from storybuilder.assets import common_rubi
 from config import ASSET
 # import scenes
 # from scenes import xxx
@@ -18,17 +19,19 @@ from config import ASSET
 #
 #   1. Initialize
 #   2. Story memo
-#   3. Story structure
-#   4. Plot
-#   5. Scenes
-#   6. Conte
-#   7. Layout
-#   8. Draft
+#   3. Structure    - 1/8
+#   4. Spec
+#   5. Plot         - 1/4
+#   6. Scenes
+#   7. Conte        - 1/2
+#   8. Layout
+#   9. Draft        - 1/1
 #
 ################################################################
 
 # Constant
 TITLE = "作品タイトル"
+MAJOR, MINOR, MICRO = 0, 0, 1
 COPY = "コピィ"
 ONELINE = "一行説明"
 OUTLINE = "あらすじ"
@@ -41,7 +44,6 @@ CAUTION = "注意事項"
 NOTE = "備考"
 SITES = ["エブリスタ", "小説家になろう", "ノベルアッププラス", "カクヨム"]
 RELEASED = (1, 1, 2020)
-MAJOR, MINOR, MICRO = 0, 0, 1
 
 
 # Episodes
@@ -59,6 +61,7 @@ def main(): # pragma: no cover
     w = World.create_world(f"{TITLE}")
     w.config.set_version(MAJOR, MINOR, MICRO)
     w.db.set_from_asset(basic.ASSET)
+    w.db.set_from_asset(common_rubi.ASSET)
     w.db.set_from_asset(ASSET)
     # spec
     w.config.set_copy(f"{COPY}")
