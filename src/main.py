@@ -43,6 +43,7 @@ CONTEST_INFO = "コンテスト情報"
 CAUTION = "注意事項"
 NOTE = "備考"
 SITES = ["エブリスタ", "小説家になろう", "ノベルアッププラス", "カクヨム"]
+TAGS = ["ドラマ",]
 RELEASED = (1, 1, 2020)
 
 
@@ -75,6 +76,7 @@ def main(): # pragma: no cover
     w.config.set_caution(f"{CAUTION}")
     w.config.set_note(f"{NOTE}")
     w.config.set_sites(*SITES)
+    w.config.set_taginfos(*TAGS)
     w.config.set_released(*RELEASED)
     return w.run(
             ch_main(w),
