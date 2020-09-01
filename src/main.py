@@ -57,7 +57,33 @@ def ch_main(w: World):
     return w.chapter('main',
             )
 
+# Notes
+def writer_note(w: World):
+    return w.writer_note("覚書",
+            )
 
+def plot_note(w: World):
+    return w.writer_note("プロットメモ",
+            )
+
+def chara_note(w: World):
+    return w.writer_note("人物メモ",
+            )
+
+def stage_note(w: World):
+    return w.writer_note("舞台メモ",
+            )
+
+def theme_note(w: World):
+    return w.writer_note("テーマメモ",
+            )
+
+def motif_note(w: World):
+    return w.writer_note("モチーフ",
+            )
+
+
+# Main
 def main(): # pragma: no cover
     w = World.create_world(f"{TITLE}")
     w.config.set_version(MAJOR, MINOR, MICRO)
@@ -79,6 +105,12 @@ def main(): # pragma: no cover
     w.config.set_taginfos(*TAGS)
     w.config.set_released(*RELEASED)
     return w.run(
+            writer_note(w),
+            plot_note(w),
+            chara_note(w),
+            stage_note(w),
+            theme_note(w),
+            motif_note(w),
             ch_main(w),
             )
 
